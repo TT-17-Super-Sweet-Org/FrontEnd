@@ -16,16 +16,12 @@ const initialRecipe ={
   category: '',
 }
 
-
-const checkStuff = 'Hello there'
-      
-      
-const textTest= 'hello alex'
-
+let initialDisabled = true
 
 function App() {
 
   const [recipe, setRecipe] = useState(initialRecipe)
+  const [disabled, setDisabled] = useState(initialDisabled)
 
   return (
     <div className="App">
@@ -41,7 +37,10 @@ function App() {
 
       <Switch>
         <Route path='/recipes'>
-          <RecipeInput recipe={recipe} setRecipe={setRecipe} />
+          <RecipeInput
+           recipe={recipe}
+           setRecipe={setRecipe}
+           disabled = {disabled}  />
         </Route>
         
         <Route path='/home'>
