@@ -5,6 +5,14 @@ import React, { useState } from 'react'
 
 export default function AddRecipe(props) {
 
+    const newRecipe = {
+        title: recipe.title.trim(),
+        source: recipe.source.trim(),
+        ingredients: recipe.instructions.trim(),
+        instructions: recipe.instructions.trim(),
+        catagory: recipe.catagory.trim(),
+    }
+
     const {recipe, setRecipe} = props
 
     const changeHandler = e =>{
@@ -50,9 +58,9 @@ export default function AddRecipe(props) {
                 <input
                 type= 'text'
                 name= 'category'
-                // value= {recipe.category}
-                // placeholder= 'Category'
-                // onChange= {changeHandler}
+                value= {recipe.category}
+                placeholder= 'Category'
+                onChange= {changeHandler}
                 />
             </form>
         </div>
