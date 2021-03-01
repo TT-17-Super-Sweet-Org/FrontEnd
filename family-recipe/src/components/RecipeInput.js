@@ -18,8 +18,6 @@ export default function AddRecipe(props) {
         setRecipe({...recipe, [name]:value})
         }
 
-
-
     const handleSubmit = e => {
         const newRecipe = {
             title: recipe.title.trim(),
