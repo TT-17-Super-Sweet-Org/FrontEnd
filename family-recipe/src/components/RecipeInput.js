@@ -22,30 +22,30 @@ export default function AddRecipe(props) {
                 <input
                 type= 'text'
                 name= 'title'
-                // value= {recipe.title}
-                // placeholder= 'Title'
-                // onChange= {changeHandler}
+                value= {recipe.title}
+                placeholder= 'Title'
+                onChange= {changeHandler}
                 />
                 <input
                 type= 'text'
                 name= 'source'
-                // value= {recipe.source}
-                // placeholder= 'Source ex: Grandma, Mom'
-                // onChange= {changeHandler}
+                value= {recipe.source}
+                placeholder= 'Source ex: Grandma, Mom'
+                onChange= {changeHandler}
                 />
                 <input
                 type= 'text'
                 name= 'ingredients'
-                // value= {recipe.ingredients}
-                // placeholder= 'Ingredients'
-                // onChange= {changeHandler}
+                value= {recipe.ingredients}
+                placeholder= 'Ingredients'
+                onChange= {changeHandler}
                 />
                 <input
                 type= 'text'
                 name= 'instructions'
-                // value= {recipe.instructions}
-                // placeholder= 'Instructions'
-                // onChange= {changeHandler}
+                value= {recipe.instructions}
+                placeholder= 'Instructions'
+                onChange= {changeHandler}
                 />
                 <input
                 type= 'text'
