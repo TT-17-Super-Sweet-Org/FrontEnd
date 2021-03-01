@@ -16,7 +16,12 @@ const initialRecipe ={
   category: '',
 }
 
+
+const checkStuff = 'Hello there'
+      
+      
 const textTest= 'hello alex'
+
 
 function App() {
 
@@ -25,6 +30,7 @@ function App() {
   return (
     <div className="App">
       <nav>
+        <p>check!</p>
         <h1 className='myheader'>Super Sweet Recipe Page!</h1>
         <div className='navLinks'>
           <Link to='/'>Login</Link>
