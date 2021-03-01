@@ -17,24 +17,18 @@ const initialRecipe ={
 }
 
 
-let initialDisabled = true;
+let initialDisabled = false;  
 
-const initialListOfRecipes = [
-  {title: 'cake',
-    source: 'internet',
-    ingredients: 'pizza',
-    instructions: 'well done',
-    category: 'cakes'
-  }
-];  
+const initialListOfRecipes = [];  
+
 
 function App() {
 
-  const [recipe, setRecipe] = useState(initialRecipe)
-  const [disabled, setDisabled] = useState(initialDisabled)
+  const [recipe, setRecipe] = useState(initialRecipe);   //this creates a recipe state
+  const [disabled, setDisabled] = useState(initialDisabled);   //diables and toggles the submit button
   const [listOfRecipes, setListOfRecipes] = useState(initialListOfRecipes);   // this will contain all added recipes 
 
-
+ console.log(listOfRecipes);
   return (
     <div className="App">
       <nav>
@@ -52,7 +46,10 @@ function App() {
           <RecipeInput
            recipe={recipe}
            setRecipe={setRecipe}
-           disabled = {disabled}  />
+           disabled = {disabled}
+           listOfRecipes = {listOfRecipes}
+           setListOfRecipes = {setListOfRecipes} 
+           />
         </Route>
         
         <Route path='/home'>

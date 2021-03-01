@@ -7,15 +7,27 @@ export default function AddRecipe(props) {
         recipe,
         setRecipe,
         disabled,
+        listOfRecipes,
+        setListOfRecipes,
         } = props
 
-    const changeHandler = e =>{
-        setRecipe({...recipe, [e.target.name]: e.target.value})
-    }
+    const changeHandler = e => {
+        console.log('change handler')
+        const {name, value} = e.target;
+            
+        setRecipe({...recipe, [name]:value})
+        }
 
     const handleSubmit = e => {
+        const newRecipe = {
+            title: recipe.title.trim(),
+            source: recipe.source.trim(),
+            ingredients: recipe.ingredients.trim(),
+            instructions: recipe.instructions.trim(),
+            category: recipe.category.trim(),
+        }
+        setListOfRecipes([...listOfRecipes, newRecipe])
         e.preventDefault()
-        e.changeHandler()
     }
 
     return (
