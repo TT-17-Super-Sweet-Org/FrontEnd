@@ -16,13 +16,6 @@ const initialRecipe ={
   category: '',
 }
 
-
-const checkStuff = 'Hello there'
-      
-      
-const textTest= 'hello alex'
-
-
 function App() {
 
   const [recipe, setRecipe] = useState(initialRecipe)

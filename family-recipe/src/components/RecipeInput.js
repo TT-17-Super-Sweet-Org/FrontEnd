@@ -2,10 +2,21 @@ import React, { useState } from 'react'
 
 
 
-
 export default function AddRecipe(props) {
-
     const {recipe, setRecipe} = props
+    
+    const recipeSubmit = () => {
+        const newRecipe = {
+            title: recipe.title.trim(),
+            source: recipe.source.trim(),
+            ingredients: recipe.ingredients.trim(),
+            instructions: recipe.instructions.trim(),
+            catagory: recipe.catagory.trim(),
+        }
+        
+    }
+
+ 
 
     const changeHandler = e =>{
         setRecipe({...recipe, [e.target.name]: e.target.value})
@@ -22,38 +33,40 @@ export default function AddRecipe(props) {
                 <input
                 type= 'text'
                 name= 'title'
-                // value= {recipe.title}
-                // placeholder= 'Title'
-                // onChange= {changeHandler}
+                value= {recipe.title}
+                placeholder= 'Title'
+                onChange= {changeHandler}
                 />
                 <input
                 type= 'text'
                 name= 'source'
-                // value= {recipe.source}
-                // placeholder= 'Source ex: Grandma, Mom'
-                // onChange= {changeHandler}
+                value= {recipe.source}
+                placeholder= 'Source ex: Grandma, Mom'
+                onChange= {changeHandler}
+
                 />
                 <input
                 type= 'text'
                 name= 'ingredients'
-                // value= {recipe.ingredients}
-                // placeholder= 'Ingredients'
-                // onChange= {changeHandler}
+                value= {recipe.ingredients}
+                placeholder= 'Ingredients'
+                onChange= {changeHandler}
                 />
                 <input
                 type= 'text'
                 name= 'instructions'
-                // value= {recipe.instructions}
-                // placeholder= 'Instructions'
-                // onChange= {changeHandler}
+                value= {recipe.instructions}
+                placeholder= 'Instructions'
+                onChange= {changeHandler}
                 />
                 <input
                 type= 'text'
                 name= 'category'
-                // value= {recipe.category}
-                // placeholder= 'Category'
-                // onChange= {changeHandler}
+                value= {recipe.category}
+                placeholder= 'Category'
+                onChange= {changeHandler}
                 />
+                <button onClick={handleSubmit} >Submit</button>
             </form>
         </div>
     )
