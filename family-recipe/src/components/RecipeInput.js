@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useHistory } from 'react-router-dom'
 
 
 export default function AddRecipe(props) {
@@ -11,6 +12,8 @@ export default function AddRecipe(props) {
         setListOfRecipes,
         } = props
 
+    const history = useHistory()
+
     const changeHandler = e => {
         console.log('change handler')
         const {name, value} = e.target;
@@ -19,6 +22,7 @@ export default function AddRecipe(props) {
         }
 
     const handleSubmit = e => {
+        e.preventDefault()
         const newRecipe = {
             title: recipe.title.trim(),
             source: recipe.source.trim(),
@@ -27,7 +31,7 @@ export default function AddRecipe(props) {
             category: recipe.category.trim(),
         }
         setListOfRecipes([...listOfRecipes, newRecipe])
-        e.preventDefault()
+        history.push('./home')
     }
 
     return (
