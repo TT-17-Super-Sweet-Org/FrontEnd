@@ -1,19 +1,13 @@
 import React, { useState } from 'react'
 
 
-
-
 export default function AddRecipe(props) {
 
-    const newRecipe = {
-        title: recipe.title.trim(),
-        source: recipe.source.trim(),
-        ingredients: recipe.instructions.trim(),
-        instructions: recipe.instructions.trim(),
-        catagory: recipe.catagory.trim(),
-    }
-
-    const {recipe, setRecipe} = props
+    const {
+        recipe,
+        setRecipe,
+        disabled,
+        } = props
 
     const changeHandler = e =>{
         setRecipe({...recipe, [e.target.name]: e.target.value})
@@ -25,9 +19,10 @@ export default function AddRecipe(props) {
     }
 
     return (
+
         <div>
             <h2>Recipe Imputs</h2>
-            <form onSubmit={handleSubmit}>
+            <form className='formContainer' onSubmit={handleSubmit}>
                 <input
                 type= 'text'
                 name= 'title'
@@ -63,6 +58,9 @@ export default function AddRecipe(props) {
                 placeholder= 'Category'
                 onChange= {changeHandler}
                 />
+                <div className='submitBtn'>
+                    <button disabled={disabled} id='submit' >Submit</button>
+                </div>
             </form>
         </div>
     )
