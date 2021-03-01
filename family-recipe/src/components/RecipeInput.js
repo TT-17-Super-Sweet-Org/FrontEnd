@@ -21,6 +21,7 @@ export default function AddRecipe(props) {
 
     const handleSubmit = e => {
         e.preventDefault()
+        e.changeHandler()
     }
 
     return (
