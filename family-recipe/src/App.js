@@ -16,15 +16,24 @@ const initialRecipe ={
   category: '',
 }
 
+
+let initialDisabled = false;  
+
+const initialListOfRecipes = [];  
+
+
 function App() {
 
-  const [recipe, setRecipe] = useState(initialRecipe)
+  const [recipe, setRecipe] = useState(initialRecipe);   //this creates a recipe state
+  const [disabled, setDisabled] = useState(initialDisabled);   //diables and toggles the submit button
+  const [listOfRecipes, setListOfRecipes] = useState(initialListOfRecipes);   // this will contain all added recipes 
 
+ console.log(listOfRecipes);
   return (
     <div className="App">
       <nav>
         <p>check!</p>
-        <h1 className='myheader'>Super Sweet Recipe Page!</h1>
+        <h1 className='myHeader'>Super Sweet Recipe Page!</h1>
         <div className='navLinks'>
           <Link to='/'>Login</Link>
           <Link to='/home'>Home</Link>
@@ -34,11 +43,17 @@ function App() {
 
       <Switch>
         <Route path='/recipes'>
-          <RecipeInput recipe={recipe} setRecipe={setRecipe} />
+          <RecipeInput
+           recipe={recipe}
+           setRecipe={setRecipe}
+           disabled = {disabled}
+           listOfRecipes = {listOfRecipes}
+           setListOfRecipes = {setListOfRecipes} 
+           />
         </Route>
         
         <Route path='/home'>
-          <Home />
+          <Home listOfRecipes={listOfRecipes}/>
         </Route>
 
         <Route path='/'>
