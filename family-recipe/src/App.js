@@ -17,6 +17,7 @@ const initialRecipe ={
 }
 
 
+let initialDisabled = true;
 
 const initialListOfRecipes = [
   {title: 'cake',
@@ -25,12 +26,15 @@ const initialListOfRecipes = [
     instructions: 'well done',
     category: 'cakes'
   }
-];   
+];  
 
 function App() {
 
-  const [recipe, setRecipe] = useState(initialRecipe);
-  const [listOfRecipes, setListOfRecipes] = useState(initialListOfRecipes); // this will contain all added recipes 
+  const [recipe, setRecipe] = useState(initialRecipe)
+  const [disabled, setDisabled] = useState(initialDisabled)
+  const [listOfRecipes, setListOfRecipes] = useState(initialListOfRecipes);   // this will contain all added recipes 
+
+
   return (
     <div className="App">
       <nav>
@@ -45,7 +49,10 @@ function App() {
 
       <Switch>
         <Route path='/recipes'>
-          <RecipeInput recipe={recipe} setRecipe={setRecipe} />
+          <RecipeInput
+           recipe={recipe}
+           setRecipe={setRecipe}
+           disabled = {disabled}  />
         </Route>
         
         <Route path='/home'>
