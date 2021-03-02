@@ -1,5 +1,16 @@
 /* eslint-disable eqeqeq */
 import React from 'react'
+import styled from 'styled-components'
+
+const RecipeStyle = styled.div`
+border:2px solid black;
+margin:5% auto;
+justify-content:center;
+align-items:center;
+padding:5% 0;
+width:40%;
+`;
+
 
 export default function Home(props) {
     const {listOfRecipes} = props;
@@ -14,7 +25,7 @@ export default function Home(props) {
 
    const listToShow = listOfRecipes.map((recipe,index) => {
        return (
-           <div className="recipe" key={index}>
+           <RecipeStyle className="recipe" key={index}>
 
 
         <h3> Recipe #{index + 1}</h3>
@@ -23,7 +34,7 @@ export default function Home(props) {
         <p>Ingredients: {recipe.ingredients}</p>
         <p>Introduction: {recipe.instruction}</p>
         <p className='category'>Category: {recipe.category}</p>
-           </div>
+           </RecipeStyle>
 
        )
    })

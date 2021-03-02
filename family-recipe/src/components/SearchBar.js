@@ -2,7 +2,7 @@ import React from 'react'
 
 
 
-export default function SearchBar(){
+export default function SearchBar(e){
     function searchFunc(){
         let input = document.querySelector('#searchBar').value;
         input = input.toLowerCase().trim();
