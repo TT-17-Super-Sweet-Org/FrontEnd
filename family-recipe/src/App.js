@@ -8,6 +8,7 @@ import Login from './components/Login'
 import RecipeInput from './components/RecipeInput'
 import SearchBar from './components/SearchBar'
 import styled from 'styled-components'
+import formSchema from './validation/FormSchema'
 
 
 const StyleList = styled.div`
@@ -24,7 +25,7 @@ const initialRecipe ={
 }
 
 
-let initialDisabled = false;  
+let initialDisabled = true;  
 
 const initialListOfRecipes = [
   {
@@ -58,13 +59,17 @@ const initialListOfRecipes = [
 ];  
 
 
+  
 function App() {
 
   const [recipe, setRecipe] = useState(initialRecipe);   //this creates a recipe state
   const [disabled, setDisabled] = useState(initialDisabled);   //disables and toggles the submit button
   const [listOfRecipes, setListOfRecipes] = useState(initialListOfRecipes);   // this will contain all added recipes 
 
- console.log(listOfRecipes);
+  useEffect(() => {
+    formSchema.isValid(recipe).then(valid => setDisabled(!valid))
+  }, [recipe])
+
   return (
     <div className="App">
       <nav>
