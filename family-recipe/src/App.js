@@ -2,7 +2,7 @@ import './App.css';
 import React, {useEffect, useState} from 'react'
 import * as yup from 'yup'
 import axios from 'axios'
-import { Switch, Link, Route } from 'react-router-dom'
+import { Switch, Link, Route, useHistory } from 'react-router-dom'
 import Home from './components/Home'
 import Login from './components/Login'
 import RecipeInput from './components/RecipeInput'
@@ -24,8 +24,15 @@ const initialRecipe ={
   category: '',
 }
 
+const initialRecipeErrors = {
+  title: '',
+  source: '',
+  ingredients: '',
+  instructions: '',
+  category: '',
+};
 
-let initialDisabled = true;  
+let initialDisabled = false;  
 
 const initialListOfRecipes = [
   {
@@ -57,18 +64,73 @@ const initialListOfRecipes = [
   category: 'food',
   },
 ];  
-
-
   
 function App() {
 
   const [recipe, setRecipe] = useState(initialRecipe);   //this creates a recipe state
   const [disabled, setDisabled] = useState(initialDisabled);   //disables and toggles the submit button
-  const [listOfRecipes, setListOfRecipes] = useState(initialListOfRecipes);   // this will contain all added recipes 
+  const [listOfRecipes, setListOfRecipes] = useState(initialListOfRecipes); 
+  const [recipeErrors, setRecipeErrors] = useState(initialRecipeErrors); // this will contain all added recipes 
+  
+  const history = useHistory()
 
-  useEffect(() => {
+  const changeHandler = e => {  //gets files and text into state
+    // let selected = e.target.files[0];
+    // if(selected && types.includes(selected.type)){
+    //     setFile(selected);
+    //     setFileError('');
+    // } else {
+    //     setFile(null)
+    //     setFileError('Please select and image file (png or jpeg)');
+    // }
+    const {name, value} = e.target;
+    setRecipe({...recipe, [name]:value})
+    }
+
+  const postNewRecipe  = newRecipe => {  //Posts a recipe to API
+    axios.post('https://tt17-secret-family-recipe.herokuapp.com/api/recipes', newRecipe)
+    .then(res => {
+      console.log(res,'response')
+      setListOfRecipes([...listOfRecipes, res.data])
+    })
+    .catch(err => {
+      debugger
+      alert(err)
+      console.log(err, 'Error message')
+    })
+    setRecipe(initialRecipe);
+  }
+
+  // const getRecipes = () => {   //gets recipes from api to display on DOM
+  //   axios.get('https://tt17-secret-family-recipe.herokuapp.com/')
+  //   .then(res => {
+  //     setListOfRecipes(res.data)
+  //   })
+  //   .catch(err => {
+  //     debugger
+  //     alert(err)
+  //     console.log(err, 'Error')
+  //   })
+  // }
+
+  const handleSubmit = e => {  //after submit gets recipe into state for axios post and sends you to homepage
+    e.preventDefault()
+    const newRecipe = {
+        title: recipe.title.trim(),
+        source: recipe.source.trim(),
+        ingredients: recipe.ingredients.trim(),
+        instructions: recipe.instructions.trim(),
+        category: recipe.category.trim(),
+    }
+    postNewRecipe(newRecipe)
+    history.push('./home')
+}
+
+  // useEffect(() => getRecipes(), []); //get recipies on page load
+
+  useEffect(() => {  // validation for submit button enabeling on recipeInpit
     formSchema.isValid(recipe).then(valid => setDisabled(!valid))
-  }, [recipe])
+  }, [recipe]);
 
   return (
     <div className="App">
@@ -87,9 +149,8 @@ function App() {
            recipe={recipe}
            setRecipe={setRecipe}
            disabled = {disabled}
-           listOfRecipes = {listOfRecipes}
-           setListOfRecipes = {setListOfRecipes}
-           initialRecipe = {initialRecipe} 
+           handleSubmit = {handleSubmit}
+           changeHandler = {changeHandler}
            />
         </Route>
         

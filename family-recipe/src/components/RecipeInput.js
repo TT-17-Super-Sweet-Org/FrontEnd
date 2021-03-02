@@ -1,7 +1,4 @@
 import React, {  useState } from 'react'
-import { useHistory } from 'react-router-dom'
-
-
 
 export default function AddRecipe(props) {
 
@@ -9,33 +6,14 @@ export default function AddRecipe(props) {
         recipe,
         setRecipe,
         disabled,
-        listOfRecipes,
-        setListOfRecipes,
-        initialRecipe,
+        handleSubmit,
+        changeHandler,
         } = props
 
-    const history = useHistory()
+    const [file,setFile] = useState(null);  // for picture upload
+    const [fileError, setFileError] = useState(null)// for picture upload
 
-    const changeHandler = e => {
-
-
-        const {name, value} = e.target;
-        setRecipe({...recipe, [name]:value})
-        }
-
-    const handleSubmit = e => {
-        e.preventDefault()
-        const newRecipe = {
-            title: recipe.title.trim(),
-            source: recipe.source.trim(),
-            ingredients: recipe.ingredients.trim(),
-            instructions: recipe.instructions.trim(),
-            category: recipe.category.trim(),
-        }
-        setListOfRecipes([...listOfRecipes, newRecipe]);
-        setRecipe(initialRecipe);
-        history.push('./home')
-    }
+    const types = ['image/png', 'image/jpeg']// allowed picture file types
 
     return (
 
@@ -97,7 +75,7 @@ export default function AddRecipe(props) {
                     />
                 </label>
                 
-                <label>Upload photo
+                {/* <label>Upload photo
                     <input 
                     className='upload'
                     type='file'
@@ -105,8 +83,12 @@ export default function AddRecipe(props) {
                     onChange={changeHandler}
                     style={{display: 'none'}}
                     />
+                    <div className='outputFile'>
+                        { fileError && <div className='error'>{fileError}</div>}
+                        { file && <div>{ file.name }</div>}
+                    </div>
                     <button>Upload</button>
-                </label>
+                </label> */}
 
                 <div className='submitBtn'>
                     <button disabled={disabled} id='submit' >Submit</button>
