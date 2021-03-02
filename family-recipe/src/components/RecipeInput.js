@@ -10,6 +10,7 @@ export default function AddRecipe(props) {
         disabled,
         listOfRecipes,
         setListOfRecipes,
+        initialRecipe,
         } = props
 
     const history = useHistory()
@@ -30,7 +31,8 @@ export default function AddRecipe(props) {
             instructions: recipe.instructions.trim(),
             category: recipe.category.trim(),
         }
-        setListOfRecipes([...listOfRecipes, newRecipe])
+        setListOfRecipes([...listOfRecipes, newRecipe]);
+        setRecipe(initialRecipe);
         history.push('./home')
     }
 

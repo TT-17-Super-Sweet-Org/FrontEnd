@@ -7,8 +7,13 @@ import Home from './components/Home'
 import Login from './components/Login'
 import RecipeInput from './components/RecipeInput'
 import SearchBar from './components/SearchBar'
+import styled from 'styled-components'
 
 
+const StyleList = styled.div`
+display:flex;
+flex-wrap:wrap;
+`;
 
 const initialRecipe ={
   title: '',
@@ -78,13 +83,16 @@ function App() {
            setRecipe={setRecipe}
            disabled = {disabled}
            listOfRecipes = {listOfRecipes}
-           setListOfRecipes = {setListOfRecipes} 
+           setListOfRecipes = {setListOfRecipes}
+           initialRecipe = {initialRecipe} 
            />
         </Route>
         
         <Route path='/home'>
         <SearchBar />
+          <StyleList className='list'>
           <Home listOfRecipes={listOfRecipes}/>
+          </StyleList>
         </Route>
 
         <Route path='/'>
