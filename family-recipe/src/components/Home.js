@@ -15,12 +15,14 @@ export default function Home(props) {
    const listToShow = listOfRecipes.map((recipe,index) => {
        return (
            <div className="recipe" key={index}>
+
+
         <h3> Recipe #{index + 1}</h3>
-        <p>Title: {recipe.title}</p>
+        <p className='title'>Title: {recipe.title}</p>
         <p>Source: {recipe.source}</p>
         <p>Ingredients: {recipe.ingredients}</p>
         <p>Introduction: {recipe.instruction}</p>
-        <p>Category: {recipe.category}</p>
+        <p className='category'>Category: {recipe.category}</p>
            </div>
 
        )
