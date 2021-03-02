@@ -37,7 +37,7 @@ export default function AddRecipe(props) {
     return (
 
         <div>
-            <h2>Recipe Imputs</h2>
+            <h2>Recipe Inputs</h2>
             <form className='formContainer' onSubmit={handleSubmit}>
                 <input
                 type= 'text'

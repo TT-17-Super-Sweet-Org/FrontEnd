@@ -6,6 +6,8 @@ import { Switch, Link, Route } from 'react-router-dom'
 import Home from './components/Home'
 import Login from './components/Login'
 import RecipeInput from './components/RecipeInput'
+import SearchBar from './components/SearchBar'
+
 
 
 const initialRecipe ={
@@ -19,20 +21,48 @@ const initialRecipe ={
 
 let initialDisabled = false;  
 
-const initialListOfRecipes = [];  
+const initialListOfRecipes = [
+  {
+    title: 'pizza',
+  source: 'dad',
+  ingredients: 'dough',
+  instructions: 'no',
+  category: 'food',
+  },
+  {
+    title: 'beer',
+  source: 'mom',
+  ingredients: 'dough',
+  instructions: 'no',
+  category: 'drink',
+  },
+  {
+    title: 'book',
+  source: 'dad',
+  ingredients: 'dough',
+  instructions: 'no',
+  category: 'other',
+  },
+  {
+    title: 'neapolitan pizza',
+  source: 'dad',
+  ingredients: 'dough',
+  instructions: 'no',
+  category: 'food',
+  },
+];  
 
 
 function App() {
 
   const [recipe, setRecipe] = useState(initialRecipe);   //this creates a recipe state
-  const [disabled, setDisabled] = useState(initialDisabled);   //diables and toggles the submit button
+  const [disabled, setDisabled] = useState(initialDisabled);   //disables and toggles the submit button
   const [listOfRecipes, setListOfRecipes] = useState(initialListOfRecipes);   // this will contain all added recipes 
 
  console.log(listOfRecipes);
   return (
     <div className="App">
       <nav>
-        <p>check!</p>
         <h1 className='myHeader'>Super Sweet Recipe Page!</h1>
         <div className='navLinks'>
           <Link to='/'>Login</Link>
@@ -53,6 +83,7 @@ function App() {
         </Route>
         
         <Route path='/home'>
+        <SearchBar />
           <Home listOfRecipes={listOfRecipes}/>
         </Route>
 
