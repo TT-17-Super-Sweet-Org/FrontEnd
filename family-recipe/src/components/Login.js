@@ -1,5 +1,6 @@
 import React, { useState }from 'react'
 import {axiosWithAuth} from '../utils/axiosWithAuth'
+import { useHistory } from 'react-router-dom'
 
 const initialState={
     username: '',
@@ -10,14 +11,19 @@ export default function Login(){
 
   const [user, setUser]= useState(initialState)
 
+  const history = useHistory()
+
   const  login = e => {
         e.preventDefault()
 
        axiosWithAuth()
        .post('/auth/login', user) 
        .then((res)=>{
-           console.log(res)
+        //    console.log('this is login:', res.data)
+           localStorage.setItem('token', res.data.token)
+           history.push('/home')
        })
+       
        .catch((err)=>{
            console.log(err)
        })
