@@ -14,12 +14,12 @@ export default function Login(){
         e.preventDefault()
 
        axiosWithAuth()
-       .post('/login') 
+       .post('/auth/login', user) 
        .then((res)=>{
            console.log(res)
        })
        .catch((err)=>{
-           console.log({err})
+           console.log(err)
        })
     }
 
