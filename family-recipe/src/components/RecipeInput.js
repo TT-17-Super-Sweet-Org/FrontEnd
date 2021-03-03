@@ -64,16 +64,61 @@ export default function AddRecipe(props) {
                     />
                 </label>
                 
-                <label>Catagory
-                    <input
-                    className='textBox category'
-                    type= 'text'
-                    name= 'category'
-                    value= {recipe.category}
-                    placeholder= 'eg. food, drink, desert, bread'
-                    onChange= {changeHandler}
-                    />
-                </label>
+                {/*     Radio buttons */}
+                <div className='catagories'>
+                    <h4>Choose the catagory that best suits your recipe:</h4>
+                    <label>Appitizer
+                        <input
+                        className='textBox category'
+                        type= 'radio'
+                        name= 'catagory'
+                        value= 'appitizer'
+                        checked= {recipe.catagory === 'appitizer'}
+                        onChange= {changeHandler}
+                        />
+                    </label>
+                    <label>Savory
+                        <input
+                        className='textBox category'
+                        type= 'radio'
+                        name= 'catagory'
+                        value= 'savory'
+                        checked= {recipe.catagory === 'savory'}
+                        onChange= {changeHandler}
+                        />
+                    </label>
+                    <label>Desert
+                        <input
+                        className='textBox category'
+                        type= 'radio'
+                        name= 'catagory'
+                        value= 'desert'
+                        checked= {recipe.catagory === 'desert'}
+                        onChange= {changeHandler}
+                        />
+                    </label>
+                    <label>Baked good 
+                        <input
+                        className='textBox category'
+                        type= 'radio'
+                        name= 'catagory'
+                        value= 'bakedgood '
+                        checked= {recipe.catagory === 'bakedgood '}
+                        onChange= {changeHandler}
+                        />
+                    </label>
+                    <label>Pizza
+                        <input
+                        className='textBox category'
+                        type= 'radio'
+                        name= 'catagory'
+                        value= 'pizza'
+                        checked= {recipe.catagory === 'pizza'}
+                        onChange= {changeHandler}
+                        />
+                    </label>
+                </div>
+                
                 
                 {/* <label>Upload photo
                     <input 

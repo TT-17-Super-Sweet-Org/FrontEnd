@@ -74,6 +74,17 @@ function App() {
   
   const history = useHistory()
 
+  const inputSubmit = (name, value) => {
+    yup.reach(formSchema, name)
+      .validate(value)
+      .then(() => {
+        setRecipeErrors({...recipeErrors, [name]:''})
+      })
+      .catch(err => {
+        setRecipeErrors({...recipeErrors, [name]:err.errors[0]})
+      })
+  }
+
   const changeHandler = e => {  //gets files and text into state
     // let selected = e.target.files[0];
     // if(selected && types.includes(selected.type)){
@@ -83,8 +94,10 @@ function App() {
     //     setFile(null)
     //     setFileError('Please select and image file (png or jpeg)');
     // }
-    const {name, value} = e.target;
+    const {name, value, checked, type} = e.target;
+    const valueToUse = type === 'checkbox' ? 'checked' : value
     setRecipe({...recipe, [name]:value})
+
     }
 
   const postNewRecipe  = newRecipe => {  //Posts a recipe to API

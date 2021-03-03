@@ -16,10 +16,11 @@ const formSchema = yup.object().shape({
         .trim()
         .required('Please add yo instructions')
         .min(2,'must be 4 characters long.'),
-    category: yup.string()
-        .trim()
-        .required('Please include catagory')
-        .min(2,'must be 5 characters long.'),
+    appitizer: yup.boolean(),
+    savory: yup.boolean(),
+    desert: yup.boolean(),
+    bakesgoods: yup.boolean(),
+    pizza: yup.boolean(),
 
 })
 
