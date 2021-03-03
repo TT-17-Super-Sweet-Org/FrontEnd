@@ -15,18 +15,57 @@ code {
 
 /*     Recipe Input CSS     */
 
-.formContainer {
+
+.outsideContainer{
   display: flex;
+  justify-content: space-around;
+  margin: 1rem;
+  font-size: 62.5%;
+}
+
+.sideDiv {
+  width: 40%;
+}
+
+.sideDiv h1 {
+  font-size: 2rem;
+}
+
+.sideDiv p {
+  line-height: 1.5;
+  font-size: 1.5rem;
+  margin: 1rem;
+  text-align: justify;
+
+}
+
+.formContainer {
+  /* border: 1px solid black; */
+  font-size: 1rem;
+  display: flex;
+
   flex-direction: column;
   align-items: center;
   margin: 2rem;
 }
 
-.textBox {
-  margin: 1rem;
-  width: 40rem;
-  height: 1.5rem;
-
+.formDiv {
+  /* border: 1px solid black; */
+  width: 40%;
 }
 
+.textBox {
+  /* border: 2px dotted red; */
+  margin: 1rem;
+  width: 30rem;
+  height: 1.5rem;
+  font-size: 1rem;
+}
 
+.ingredients {
+  height: 3rem;
+}
+
+.radio {
+
+}
