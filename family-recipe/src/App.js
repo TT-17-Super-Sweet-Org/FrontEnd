@@ -11,6 +11,8 @@ import styled from 'styled-components'
 import formSchema from './validation/FormSchema'
 
 
+// import PrivateRoute from './components/PrivateRoute'
+
 const StyleList = styled.div`
 display:flex;
 flex-wrap:wrap;
