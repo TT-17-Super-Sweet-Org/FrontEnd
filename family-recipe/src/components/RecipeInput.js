@@ -1,33 +1,64 @@
 import React, {  useState } from 'react'
+import {axiosWithAuth} from '../utils/axiosWithAuth'
 
-export default function AddRecipe(props) {
+const intitalRecipe = {
+    title: '',
+    source: '',
+    ingredients: '',
+    instructions: '',
+    category: '',
+}
 
-    const {
-        recipe,
-        setRecipe,
-        disabled,
-        handleSubmit,
-        changeHandler,
-        } = props
+function AddRecipe({disabled}) {
 
-    const [file,setFile] = useState(null);  // for picture upload
-    const [fileError, setFileError] = useState(null)// for picture upload
+    // const {
+    //     recipe,
+    //     setRecipe,
+    //     disabled,
+    //     handleSubmit,
+    //     changeHandler,
+    //     } = props
+    const [newRecipe, setNewRecipe] = useState(intitalRecipe)
+    // const [file,setFile] = useState(null);  // for picture upload
+    // const [fileError, setFileError] = useState(null)// for picture upload
 
-    const types = ['image/png', 'image/jpeg']// allowed picture file types
+    // const types = ['image/png', 'image/jpeg']// allowed picture file types
+
+    const handleChange=e=>{
+        e.preventDefault()
+        setNewRecipe({
+            ...newRecipe,
+            [e.target.name]: e.target.value
+        })
+    }
+
+    const recipe = e => {
+        e.preventDefault()
+
+        axiosWithAuth()
+        .post('/api/recipes')
+        .then((res)=>{
+            console.log(res)
+        })
+        .catch((err)=>{
+            console.log({err})
+        })
+    }
+
 
     return (
 
         <div>
             <h2>Recipe Inputs</h2>
-            <form className='formContainer' onSubmit={handleSubmit}>
+            <form className='formContainer' onSubmit={recipe}>
                 <label>Title of recipe
                     <input
                     className='textBox title'
                     type= 'text'
                     name= 'title'
-                    value= {recipe.title}
+                    value= {newRecipe.title}
                     placeholder= 'Title'
-                    onChange= {changeHandler}
+                    onChange= {handleChange}
                     />
                 </label>
                 
@@ -36,9 +67,9 @@ export default function AddRecipe(props) {
                     className='textBox source'
                     type= 'text'
                     name= 'source'
-                    value= {recipe.source}
+                    value= {newRecipe.source}
                     placeholder= 'Source ex: Grandma, Mom'
-                    onChange= {changeHandler}
+                    onChange= {handleChange}
                     />
                 </label>
                 
@@ -47,9 +78,9 @@ export default function AddRecipe(props) {
                     className='textBox ingredients'
                     type= 'text'
                     name= 'ingredients'
-                    value= {recipe.ingredients}
+                    value= {newRecipe.ingredients}
                     placeholder= 'Ingredients'
-                    onChange= {changeHandler}
+                    onChange= {handleChange}
                     />
                 </label>
                 
@@ -58,9 +89,9 @@ export default function AddRecipe(props) {
                     className='textBox instructions'
                     type= 'text'
                     name= 'instructions'
-                    value= {recipe.instructions}
+                    value= {newRecipe.instructions}
                     placeholder= 'Instructions'
-                    onChange= {changeHandler}
+                    onChange= {handleChange}
                     />
                 </label>
                 
@@ -69,9 +100,9 @@ export default function AddRecipe(props) {
                     className='textBox category'
                     type= 'text'
                     name= 'category'
-                    value= {recipe.category}
+                    value= {newRecipe.category}
                     placeholder= 'eg. food, drink, desert, bread'
-                    onChange= {changeHandler}
+                    onChange= {handleChange}
                     />
                 </label>
                 
@@ -97,3 +128,5 @@ export default function AddRecipe(props) {
         </div>
     )
 }
+
+export default AddRecipe
