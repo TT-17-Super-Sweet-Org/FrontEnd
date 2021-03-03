@@ -1,10 +1,8 @@
 import React, {useState} from 'react'
 import { axiosWithAuth } from '../utils/axiosWithAuth'
+import { useHistory } from 'react-router-dom'
 
 const initialSignUpValues = {
-    // firstName: '',
-    // lastName: '',
-    // email: '',
     username: '',
     password: '',
 }
@@ -13,6 +11,8 @@ const initialSignUpValues = {
 function SignUp() {
 const [newUser, setNewUser] = useState(initialSignUpValues)
 
+const history = useHistory()
+
 const setUser = e =>{
     e.preventDefault()
 
@@ -20,6 +20,7 @@ const setUser = e =>{
     .post('/auth/register', newUser)
     .then((res)=>{
         console.log('register user:', res)
+        history.push('/login')
     })
     .catch((err)=>{
         console.log('register user error:', err)
@@ -37,33 +38,6 @@ const handleChange = e => {
     return (
         <div>
             <form onSubmit={setUser}>
-                {/* <label>
-                    <input
-                    type= 'text'
-                    name= 'firstName'
-                    value= {newUser.firstName}
-                    placeholder= 'First Name'
-                    onChange={handleChange}
-                    />
-                </label>
-                <label>
-                    <input
-                    type= 'text'
-                    name= 'lastName'
-                    value= {newUser.lastName}
-                    placeholder= 'Last Name'
-                    onChange={handleChange}
-                    />
-                </label>
-                <label>
-                    <input
-                    type= 'email'
-                    name= 'email'
-                    value= {newUser.email}
-                    placeholder= 'Email'
-                    onChange={handleChange}
-                    />
-                </label> */}
                 <label>
                     <input
                     type= 'text'
@@ -82,8 +56,9 @@ const handleChange = e => {
                     onChange={handleChange}
                     />
                 </label>
+                <button type='submit'>Sign Up</button>
             </form>
-            <button>Sign Up</button>
+            
         </div>
     )
 }
