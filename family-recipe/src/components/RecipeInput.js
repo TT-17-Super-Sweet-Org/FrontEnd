@@ -48,15 +48,21 @@ function AddRecipe({disabled}) {
 
     return (
 
-        <div>
-            <h2>Recipe Inputs</h2>
+        <div className='outsideContainer'>
+            <div className='sideDiv'>
+                <h1>Have an amazing recipe that you'd like to save or share?</h1>
+                <p>Listen, we all have that amazing recipie that we got from grandma, your best friends mother, or even an old soup label!  Why not save them forever on our site in case of fire, flood or any other natural disater? Or I guess, you know, you just want to share that sweet recipe!  Whatever, the world is your oyster!</p>
+    
+            </div>
+            <div className='formDiv'>
+            <h2></h2>
             <form className='formContainer' onSubmit={recipe}>
                 <label>Title of recipe
                     <input
                     className='textBox title'
                     type= 'text'
                     name= 'title'
-                    value= {newRecipe.title}
+                    value= {recipe.title}
                     placeholder= 'Title'
                     onChange= {handleChange}
                     />
@@ -67,7 +73,7 @@ function AddRecipe({disabled}) {
                     className='textBox source'
                     type= 'text'
                     name= 'source'
-                    value= {newRecipe.source}
+                    value= {recipe.source}
                     placeholder= 'Source ex: Grandma, Mom'
                     onChange= {handleChange}
                     />
@@ -78,7 +84,7 @@ function AddRecipe({disabled}) {
                     className='textBox ingredients'
                     type= 'text'
                     name= 'ingredients'
-                    value= {newRecipe.ingredients}
+                    value= {recipe.ingredients}
                     placeholder= 'Ingredients'
                     onChange= {handleChange}
                     />
@@ -89,29 +95,74 @@ function AddRecipe({disabled}) {
                     className='textBox instructions'
                     type= 'text'
                     name= 'instructions'
-                    value= {newRecipe.instructions}
+                    value= {recipe.instructions}
                     placeholder= 'Instructions'
                     onChange= {handleChange}
                     />
                 </label>
                 
-                <label>Catagory
-                    <input
-                    className='textBox category'
-                    type= 'text'
-                    name= 'category'
-                    value= {newRecipe.category}
-                    placeholder= 'eg. food, drink, desert, bread'
-                    onChange= {handleChange}
-                    />
-                </label>
+                {/*     Radio buttons for catagories     */}
+                <div className='catagories'>
+                    <h4>Choose the catagory that best suits your recipe:</h4>
+                    <label>Appitizer
+                        <input
+                        className='radioBtn category'
+                        type= 'radio'
+                        name= 'catagory'
+                        value= 'appitizer'
+                        checked= {recipe.catagory === 'appitizer'}
+                        onChange= {handleChange}
+                        />
+                    </label>
+                    <label>Savory
+                        <input
+                        className='radioBtn category'
+                        type= 'radio'
+                        name= 'catagory'
+                        value= 'savory'
+                        checked= {recipe.catagory === 'savory'}
+                        onChange= {handleChange}
+                        />
+                    </label>
+                    <label>Desert
+                        <input
+                        className='radioBtn category'
+                        type= 'radio'
+                        name= 'catagory'
+                        value= 'desert'
+                        checked= {recipe.catagory === 'desert'}
+                        onChange= {handleChange}
+                        />
+                    </label>
+                    <label>Baked good 
+                        <input
+                        className='radioBtn category'
+                        type= 'radio'
+                        name= 'catagory'
+                        value= 'bakedgood '
+                        checked= {recipe.catagory === 'bakedgood '}
+                        onChange= {handleChange}
+                        />
+                    </label>
+                    <label>Pizza
+                        <input
+                        className='radioBtn category'
+                        type= 'radio'
+                        name= 'catagory'
+                        value= 'pizza'
+                        checked= {recipe.catagory === 'pizza'}
+                        onChange= {handleChange}
+                        />
+                    </label>
+                </div>
+                
                 
                 {/* <label>Upload photo
                     <input 
                     className='upload'
                     type='file'
                     name='picture'
-                    onChange={changeHandler}
+                    onChange={handleChange}
                     style={{display: 'none'}}
                     />
                     <div className='outputFile'>
@@ -120,13 +171,15 @@ function AddRecipe({disabled}) {
                     </div>
                     <button>Upload</button>
                 </label> */}
-
+    
                 <div className='submitBtn'>
                     <button disabled={disabled} id='submit' >Submit</button>
                 </div>
+                
             </form>
+            </div>
         </div>
-    )
-}
+        )
+    }
 
 export default AddRecipe
