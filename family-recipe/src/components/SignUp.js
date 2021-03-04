@@ -52,7 +52,7 @@ const handleChange = e => {
                         onChange={handleChange}
                         />
                     </label>
-                    <label>Password: 
+                    <label>Password: <span> </span> 
                         <input
                         className='signupInput'
                         type= 'password'
