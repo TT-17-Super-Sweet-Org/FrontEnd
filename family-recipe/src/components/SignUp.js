@@ -41,8 +41,6 @@ const handleChange = e => {
 
             </div>
             <div className='signupFormContainer'>
-                <h1>Welcome to Super Sweet Recipe Page!</h1>
-                <p>Lets creat a login to get started!</p>
                 <form onSubmit={setUser} className='signupForm'>
                     <label>Username: 
                         <input
