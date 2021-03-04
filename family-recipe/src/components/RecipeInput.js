@@ -1,5 +1,6 @@
-import React, {  useState } from 'react'
-import {axiosWithAuth} from '../utils/axiosWithAuth'
+import React, {  useState } from 'react';
+import {axiosWithAuth} from '../utils/axiosWithAuth';
+import {recipeImg} from "src/theme/images/thumbs/05.jpg";
 
 const intitalRecipe = {
     title: '',
@@ -50,9 +51,10 @@ function AddRecipe({disabled}) {
 
         <div className='outsideContainer'>
             <div className='sideDiv'>
+                <img src={recipeImg} alt='people enjoying a nice dinner' />
                 <h1>Have an amazing recipe that you'd like to save or share?</h1>
                 <p>Listen, we all have that amazing recipie that we got from grandma, your best friends mother, or even an old soup label!  Why not save them forever on our site in case of fire, flood or any other natural disater? Or I guess, you know, you just want to share that sweet recipe!  Whatever, the world is your oyster!</p>
-    
+
             </div>
             <div className='formDiv'>
             <h2></h2>
