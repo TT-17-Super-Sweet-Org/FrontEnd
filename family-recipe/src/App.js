@@ -9,6 +9,8 @@ import SearchBar from './components/SearchBar'
 import styled from 'styled-components'
 // import formSchema from './validation/FormSchema'
 import SignUp from './components/SignUp';
+import image from './theme/images/thumbs/02.jpg'
+import image1 from './theme/images/thumbs/04.jpg'
 
 
 // import PrivateRoute from './components/PrivateRoute'
@@ -16,7 +18,22 @@ import SignUp from './components/SignUp';
 const StyleList = styled.div`
 display:flex;
 flex-wrap:wrap;
+background-image:url(${image});
+background-size:cover;
+background-repeat: no-repeat;
+background-attachment: fixed;
+min-height:40rem;
 `;
+
+const StyleLog = styled.div`
+background-image:url(${image1});
+background-size:cover;
+background-repeat: no-repeat;
+background-attachment: fixed;
+min-height:40rem;
+`;
+
+
 
 
 // const initialRecipeErrors = {
@@ -35,29 +52,30 @@ const initialListOfRecipes = [
   source: 'dad',
   ingredients: 'dough',
   instructions: 'no',
-  category: 'food',
+  category: 'pizza',
   },
   {
     title: 'beer',
   source: 'mom',
   ingredients: 'dough',
   instructions: 'no',
-  category: 'drink',
+  category: 'appetizer',
   },
   {
     title: 'book',
   source: 'dad',
   ingredients: 'dough',
   instructions: 'no',
-  category: 'other',
+  category: 'savory',
   },
   {
     title: 'neapolitan pizza',
   source: 'dad',
   ingredients: 'dough',
   instructions: 'no',
-  category: 'food',
+  category: 'pizza',
   },
+  
 ];  
   
 function App() {
@@ -142,14 +160,16 @@ function App() {
         <Route path='/signup' component={SignUp}/>
         
         <Route path='/home'>
-        <SearchBar />
+          <SearchBar />
           <StyleList className='list'>
           <Home listOfRecipes={listOfRecipes}/>
           </StyleList>
         </Route>
 
         <Route path='/'>
+          <StyleLog>
           <Login />
+          </StyleLog>
         </Route>
       </Switch>
     </div>

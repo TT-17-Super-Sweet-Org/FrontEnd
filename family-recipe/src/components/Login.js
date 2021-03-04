@@ -7,6 +7,7 @@ const initialState={
     password: ''
 }
 
+
 export default function Login(){
 
   const [user, setUser]= useState(initialState)
@@ -37,11 +38,11 @@ export default function Login(){
   }
 
 return(
-    <div>
-        User Login
+    <div className='loginDiv'>
         <form onSubmit={login}>
             <label>Username
             <input
+            className='loginInput'
             type= 'text' 
             name= 'username'
             value= {user.username}
@@ -51,6 +52,7 @@ return(
             </label>Password
             <label>
             <input
+             className='loginInput'
              type= 'password' 
              name= 'password'
              value= {user.password}
@@ -58,7 +60,7 @@ return(
              placeholder='password'
             />
             </label>
-            <button>Log In</button>
+            <button id='loginButton'>Log In</button>
         </form>
     </div>
 )
