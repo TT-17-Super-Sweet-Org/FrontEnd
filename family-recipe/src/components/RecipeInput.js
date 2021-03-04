@@ -65,6 +65,7 @@ function AddRecipe({disabled}) {
                     value= {recipe.title}
                     placeholder= 'Title'
                     onChange= {handleChange}
+                    rows ={4}
                     />
                 </label>
                 
@@ -80,30 +81,34 @@ function AddRecipe({disabled}) {
                 </label>
                 
                 <label>Ingredients
-                    <input
+                    <textarea
                     className='textBox ingredients'
                     type= 'text'
                     name= 'ingredients'
                     value= {recipe.ingredients}
                     placeholder= 'Ingredients'
                     onChange= {handleChange}
+                    rows={4}
                     />
                 </label>
                 
                 <label>Instructions
-                    <input
+                    <textarea
                     className='textBox instructions'
                     type= 'text'
                     name= 'instructions'
                     value= {recipe.instructions}
                     placeholder= 'Instructions'
                     onChange= {handleChange}
+                    rows={4}
+                    // cols={2}
                     />
                 </label>
                 
                 {/*     Radio buttons for catagories     */}
-                <div className='catagories'>
-                    <h4>Choose the catagory that best suits your recipe:</h4>
+                <h4>Choose the catagory that best suits your recipe:</h4>
+                <div className='categories'>
+                    
                     <label>Appitizer
                         <input
                         className='radioBtn category'
