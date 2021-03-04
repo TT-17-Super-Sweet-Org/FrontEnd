@@ -49,12 +49,14 @@ function AddRecipe({disabled}) {
 
         <div className='outsideContainer'>
             <div className='sideDiv'>
+
+                <img src={image} alt='people enjoying a nice dinner' className='recipeImg'/>
                 <h1>Have an amazing recipe that you'd like to save or share?</h1>
-                <p>Listen, we all have that amazing recipe that we got from grandma, your best friends mother, or even an old soup label!  Why not save them forever on our site in case of fire, flood or any other natural disater? Or I guess, you know, you just want to share that sweet recipe!  Whatever, the world is your oyster!</p>
-    
+                <p>Listen, we all have that amazing recipie that we got from grandma, your best friends mother, or even an old soup label!  Why not save them forever on our site in case of fire, flood or any other natural disater? Or I guess, you know, you just want to share that sweet recipe!  Whatever, the world is your oyster!</p>
+
             </div>
             <div className='formDiv'>
-            <h2></h2>
+                
             <form className='formContainer' onSubmit={recipe}>
                 <label>Title of recipe
                     <input
@@ -100,10 +102,10 @@ function AddRecipe({disabled}) {
                     placeholder= 'Instructions'
                     onChange= {handleChange}
                     rows={4}
-                    // cols={2}
                     />
                 </label>
                 
+
                 {/*     Radio buttons for catagories     */}
                 <h4>Choose the category that best suits your recipe:</h4>
                 <div className='categories'>
@@ -148,6 +150,7 @@ function AddRecipe({disabled}) {
                         onChange= {handleChange}
                         />
                     </label>
+
                     <label>Pizza
                         <input
                         className='radioBtn category'
