@@ -48,10 +48,6 @@ button {
 
 .imageContainer{
   background-image: url('./theme/images/bg.jpg');
-=======
-.imageContainer {
-  background-image: url("./theme/images/bg.jpg");
-
   width: 50%;
   align-items: stretch;
 }
