@@ -36,29 +36,36 @@ const handleChange = e => {
 }
 
     return (
-        <div>
-            <form onSubmit={setUser}>
-                <label>
-                    <input
-                    type= 'text'
-                    name= 'username'
-                    value= {newUser.username}
-                    placeholder= 'Username'
-                    onChange={handleChange}
-                    />
-                </label>
-                <label>
-                    <input
-                    type= 'password'
-                    name= 'password'
-                    value= {newUser.password}
-                    placeholder= 'Password'
-                    onChange={handleChange}
-                    />
-                </label>
-                <button type='submit'>Sign Up</button>
-            </form>
-            
+        <div className='container'>
+            <div className='imageContainer'>
+
+            </div>
+            <div className='signupFormContainer'>
+                <form onSubmit={setUser} className='signupForm'>
+                    <label>Username: 
+                        <input
+                        className='signupInput'
+                        type= 'text'
+                        name= 'username'
+                        value= {newUser.username}
+                        placeholder= 'Username'
+                        onChange={handleChange}
+                        />
+                    </label>
+                    <label>Password: 
+                        <input
+                        className='signupInput'
+                        type= 'password'
+                        name= 'password'
+                        value= {newUser.password}
+                        placeholder= 'Password'
+                        onChange={handleChange}
+                        />
+                    </label>
+                    <button type='submit' className='submitBtn'>Sign Up</button>
+                </form>
+                
+            </div>
         </div>
     )
 }
