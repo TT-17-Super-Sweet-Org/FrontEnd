@@ -17,6 +17,14 @@ body {
   background: #fefefa;
 }
 
+button {
+  padding: .2rem 2rem;
+  border-radius: .5rem;
+  margin: .5rem;
+  background: linear-gradient(45deg, #6e8d8f 30%, #6b5f81 90%);
+  box-shadow: 0 3px 5px 2px rgba(89, 88, 105, 0.3);
+}
+
 
 /*      Sign up page      */
 .container{
@@ -26,9 +34,15 @@ body {
 
 .signupFormContainer{
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 50%;
+}
+
+.signupFormContainer h1 {
+  width: 80%;
+  text-align: center;
 }
 
 .imageContainer{
@@ -52,25 +66,28 @@ body {
   border-bottom: 1px solid black;
 }
 
-button {
-  padding: .2rem 2rem;
-  border-radius: .5rem;
-  margin: .5rem;
-}
+
 
 
 /*     Recipe Input CSS     */
 
 
 .outsideContainer{
+
   display: flex;
   justify-content: space-around;
-  margin: 1rem;
-  font-size: 62.5%;
+  margin: 2rem;
+  font-size: 62.5%; 
+   margin-top: 5rem;
 }
 
 .sideDiv {
   width: 40%;
+}
+
+.recipeImg {
+  border-radius: 50%;
+  width: 90%;
 }
 
 .sideDiv h1 {
@@ -79,7 +96,7 @@ button {
 
 .sideDiv p {
   line-height: 1.5;
-  font-size: 1.5rem;
+  font-size: 1.23rem;
   margin: 1rem;
   text-align: justify;
 
@@ -89,22 +106,22 @@ button {
   /* border: 1px solid black; */
   font-size: 1rem;
   display: flex;
-
   flex-direction: column;
   align-items: center;
   margin: 2rem;
+  width: 100%;
 }
 
 .formDiv {
-  /* border: 1px solid black; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   width: 40%;
 }
 
 .textBox {
-  /* border: 2px dotted red; */
   margin: 1rem;
-  width: 30rem;
-  /* height: 1.5rem; */
+  width: 25rem;
   font-size: 1rem;
 }
 
