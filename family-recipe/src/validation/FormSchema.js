@@ -18,7 +18,7 @@ const formSchema = yup.object().shape({
         .min(2,'must be 4 characters long.'),
     category: yup.string()
         .trim()
-        .required('Please include catagory')
+        .required('Please include category')
         .min(2,'must be 5 characters long.'),
 
 })
