@@ -1,6 +1,6 @@
 import React, {  useState } from 'react';
 import {axiosWithAuth} from '../utils/axiosWithAuth';
-import image from '../theme/images/thumbs/02.jpg'
+import image from '../theme/images/thumbs/05.jpg'
 
 const intitalRecipe = {
     title: '',
