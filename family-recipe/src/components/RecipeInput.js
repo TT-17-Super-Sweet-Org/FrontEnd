@@ -128,7 +128,7 @@ function AddRecipe({disabled}) {
                         onChange= {handleChange}
                         />
                     </label>
-                    <label>Desert
+                    <label>Dessert
                         <input
                         className='radioBtn category'
                         type= 'radio'
