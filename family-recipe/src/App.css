@@ -13,21 +13,80 @@
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.myHeader {
   display: flex;
+  background-color: #eceae0;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  font-size: calc(10px + 4vmin);
+  color: #63aa9c;
+}
+nav {
+  background-color: #eceae0;
+  color: #221e1d;
+  padding-bottom: 1%;
+}
+.searchDiv {
+  background-color: #eceae0;
+  padding-top: 1%;
+  min-height: 5vh;
+}
+.loginDiv {
+  padding-top: 10%;
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  color: #eceae0;
+  font-size: x-large;
+  font-weight: 700;
+}
+.loginInput {
+  width: 100%;
+  padding: 4%;
+  margin: 2%;
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  background-color: #eceae0;
+}
+#loginButton {
+  padding: 5%;
+  width: 100%;
+  margin-top: 20%;
+  background-color: #63aa9c;
+  transition: all 0.3s ease-in-out 0s;
+  color: #221e1d;
+  font-size: large;
+  font-weight: 700;
+  cursor: pointer;
+}
+#loginButton:hover {
+  background-color: #e9633b;
+  transition: all 0.3s ease-in-out 0s;
 }
 
-.App-link {
-  color: #61dafb;
+a {
+  color: #221e1d;
+  padding: 2%;
+  font-size: xx-large;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.33s ease-in-out;
+}
+a:hover {
+  color: #e9633b;
+  transition: all 0.33s ease-in-out;
 }
 
+html {
+  background-color: #eceae0;
+  color: #221e1d;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
