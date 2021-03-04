@@ -1,7 +1,7 @@
 import React, {  useState } from 'react'
 import {axiosWithAuth} from '../utils/axiosWithAuth'
 
-const intitalRecipe = {
+const initialRecipe = {
     title: '',
     source: '',
     ingredients: '',
@@ -18,14 +18,13 @@ function AddRecipe({disabled}) {
     //     handleSubmit,
     //     changeHandler,
     //     } = props
-    const [newRecipe, setNewRecipe] = useState(intitalRecipe)
+    const [newRecipe, setNewRecipe] = useState(initialRecipe)
     // const [file,setFile] = useState(null);  // for picture upload
     // const [fileError, setFileError] = useState(null)// for picture upload
 
     // const types = ['image/png', 'image/jpeg']// allowed picture file types
 
     const handleChange=e=>{
-        e.preventDefault()
         setNewRecipe({
             ...newRecipe,
             [e.target.name]: e.target.value
@@ -51,7 +50,7 @@ function AddRecipe({disabled}) {
         <div className='outsideContainer'>
             <div className='sideDiv'>
                 <h1>Have an amazing recipe that you'd like to save or share?</h1>
-                <p>Listen, we all have that amazing recipie that we got from grandma, your best friends mother, or even an old soup label!  Why not save them forever on our site in case of fire, flood or any other natural disater? Or I guess, you know, you just want to share that sweet recipe!  Whatever, the world is your oyster!</p>
+                <p>Listen, we all have that amazing recipe that we got from grandma, your best friends mother, or even an old soup label!  Why not save them forever on our site in case of fire, flood or any other natural disater? Or I guess, you know, you just want to share that sweet recipe!  Whatever, the world is your oyster!</p>
     
             </div>
             <div className='formDiv'>
@@ -106,16 +105,16 @@ function AddRecipe({disabled}) {
                 </label>
                 
                 {/*     Radio buttons for catagories     */}
-                <h4>Choose the catagory that best suits your recipe:</h4>
+                <h4>Choose the category that best suits your recipe:</h4>
                 <div className='categories'>
                     
-                    <label>Appitizer
+                    <label>Appetizer
                         <input
                         className='radioBtn category'
                         type= 'radio'
-                        name= 'catagory'
-                        value= 'appitizer'
-                        checked= {recipe.catagory === 'appitizer'}
+                        name= 'category'
+                        value= 'appetizer'
+                        checked= {recipe.category === 'appetizer'}
                         onChange= {handleChange}
                         />
                     </label>
@@ -123,9 +122,9 @@ function AddRecipe({disabled}) {
                         <input
                         className='radioBtn category'
                         type= 'radio'
-                        name= 'catagory'
+                        name= 'category'
                         value= 'savory'
-                        checked= {recipe.catagory === 'savory'}
+                        checked= {recipe.category === 'savory'}
                         onChange= {handleChange}
                         />
                     </label>
@@ -133,9 +132,9 @@ function AddRecipe({disabled}) {
                         <input
                         className='radioBtn category'
                         type= 'radio'
-                        name= 'catagory'
-                        value= 'desert'
-                        checked= {recipe.catagory === 'desert'}
+                        name= 'category'
+                        value= 'dessert'
+                        checked= {recipe.category === 'dessert'}
                         onChange= {handleChange}
                         />
                     </label>
@@ -143,9 +142,9 @@ function AddRecipe({disabled}) {
                         <input
                         className='radioBtn category'
                         type= 'radio'
-                        name= 'catagory'
-                        value= 'bakedgood '
-                        checked= {recipe.catagory === 'bakedgood '}
+                        name= 'category'
+                        value= 'baked good '
+                        checked= {recipe.category === 'baked good '}
                         onChange= {handleChange}
                         />
                     </label>
@@ -153,9 +152,9 @@ function AddRecipe({disabled}) {
                         <input
                         className='radioBtn category'
                         type= 'radio'
-                        name= 'catagory'
+                        name= 'category'
                         value= 'pizza'
-                        checked= {recipe.catagory === 'pizza'}
+                        checked= {recipe.category === 'pizza'}
                         onChange= {handleChange}
                         />
                     </label>
