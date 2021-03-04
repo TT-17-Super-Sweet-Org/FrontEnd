@@ -17,6 +17,11 @@ body {
   background: #fefefa;
 }
 
+button{
+  box-shadow: 0 3px 5px 2px rgba(166, 156, 201, 0.3);
+  background: linear-gradient(45deg, #47d17c 30%, #50ad82 90%);
+}
+
 /*      Sign up page      */
 .container {
   display: flex;
@@ -69,6 +74,11 @@ button {
 
 .sideDiv {
   width: 40%;
+}
+
+.recipeImg {
+  width: 90%;
+  border-radius: 50%;
 }
 
 .sideDiv h1 {
