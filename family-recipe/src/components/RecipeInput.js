@@ -26,17 +26,17 @@ function AddRecipe({disabled}) {
         })
     }
 
-    console.log(newRecipe)
+    // console.log(newRecipe)
 
 
     const recipe = e => {
         e.preventDefault()
 
         axiosWithAuth()
-        .post('/api/recipes')
+        .post('/recipes', newRecipe)
         .then((res)=>{
             console.log('this is newrecipe:',res)
-            history.pushState('/home')
+            history.push('/home')
         })
         .catch((err)=>{
             console.log('this is newrecipe error:',{err})

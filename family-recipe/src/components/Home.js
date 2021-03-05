@@ -5,6 +5,7 @@ import styled from 'styled-components'
 // import image from '../theme/images/thumbs/06.jpg'
 import axios from 'axios'
 
+
 const RecipeStyle = styled.div`
 border:2px solid black;
 border-radius:5%;
@@ -51,7 +52,7 @@ useEffect(()=>{
     .catch((err)=>{
         console.log('this is userrecipe error:',{err})
     })
-},[user]
+},[]
 
 )
 
@@ -66,7 +67,8 @@ useEffect(()=>{
 
    const listToShow = userRecipes.map((recipe,index) => {
        return (
-           <RecipeStyle className="recipe" key={index}>
+           <>
+           <RecipeStyle className="recipe" key={index}setUserRecipes={setUserRecipes} userRecipes={userRecipes}>
 
 
         <h3> Recipe #{index + 1}</h3>
@@ -75,8 +77,9 @@ useEffect(()=>{
         <p><span>Ingredients: </span>{recipe.ingredients}</p>
         <p className='category'><span>Category: </span>{recipe.category}</p>
         <p><span>Instructions: </span>{recipe.instruction}</p>
+        <button>Delete</button>
            </RecipeStyle>
-
+        </>
        )
    })
    return listToShow;
