@@ -12,7 +12,7 @@ const initialRecipe = {
     category: '',
 }
 
-function AddRecipe({disabled}) {
+function AddRecipe() {
 
     const [newRecipe, setNewRecipe] = useState(initialRecipe)
 
@@ -127,7 +127,7 @@ function AddRecipe({disabled}) {
                 </label>
     
                 <div className='submitBtn'>
-                    <button disabled={disabled} id='submit' >Submit</button>
+                    <button id='submit' >Submit</button>
                 </div>
                 
             </form>
