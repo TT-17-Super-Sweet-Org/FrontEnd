@@ -52,7 +52,7 @@ useEffect(()=>{
     .catch((err)=>{
         console.log('this is userrecipe error:',{err})
     })
-},[]
+},[user]
 
 )
 

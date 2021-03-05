@@ -1,7 +1,7 @@
 import './App.css';
-import React, { useState} from 'react'
+import React from 'react'
 // import * as yup from 'yup'
-import { Switch, Link, Route, useHistory } from 'react-router-dom'
+import { Switch, Link, Route } from 'react-router-dom'
 import Home from './components/Home'
 import Login from './components/Login'
 import RecipeInput from './components/RecipeInput'
@@ -44,45 +44,45 @@ min-height:40rem;
 //   category: '',
 // };
 
-let initialDisabled = false;  
+// let initialDisabled = false;  
 
-const initialListOfRecipes = [
-  {
-    title: 'pizza',
-  source: 'dad',
-  ingredients: 'dough',
-  instructions: 'no',
-  category: 'pizza',
-  },
-  {
-    title: 'beer',
-  source: 'mom',
-  ingredients: 'dough',
-  instructions: 'no',
-  category: 'appetizer',
-  },
-  {
-    title: 'book',
-  source: 'dad',
-  ingredients: 'dough',
-  instructions: 'no',
-  category: 'savory',
-  },
-  {
-    title: 'neapolitan pizza',
-  source: 'dad',
-  ingredients: 'dough',
-  instructions: 'no',
-  category: 'pizza',
-  },
+// const initialListOfRecipes = [
+//   {
+//     title: 'pizza',
+//   source: 'dad',
+//   ingredients: 'dough',
+//   instructions: 'no',
+//   category: 'pizza',
+//   },
+//   {
+//     title: 'beer',
+//   source: 'mom',
+//   ingredients: 'dough',
+//   instructions: 'no',
+//   category: 'appetizer',
+//   },
+//   {
+//     title: 'book',
+//   source: 'dad',
+//   ingredients: 'dough',
+//   instructions: 'no',
+//   category: 'savory',
+//   },
+//   {
+//     title: 'neapolitan pizza',
+//   source: 'dad',
+//   ingredients: 'dough',
+//   instructions: 'no',
+//   category: 'pizza',
+//   },
   
-];  
+// ];  
   
 function App() {
 
 
-  const [disabled, setDisabled] = useState(initialDisabled);   //disables and toggles the submit button
-  const [listOfRecipes, setListOfRecipes] = useState(initialListOfRecipes); 
+  // const [disabled, setDisabled] = useState(initialDisabled);   //disables and toggles the submit button
+  // const [listOfRecipes, setListOfRecipes] = useState(initialListOfRecipes); 
   // const [recipeErrors, setRecipeErrors] = useState(initialRecipeErrors); // this will contain all added recipes 
   
   // const history = useHistory()
@@ -147,7 +147,7 @@ function App() {
 
       <Switch>
         <Route path='/recipes'>
-          <RecipeInput disabled = {disabled}/>
+          <RecipeInput/>
           {/* <RecipeInput
            recipe={recipe}
            setRecipe={setRecipe}
@@ -162,7 +162,7 @@ function App() {
         <Route path='/home'>
           <SearchBar />
           <StyleList className='list'>
-          <Home listOfRecipes={listOfRecipes}/>
+          <Home />
           </StyleList>
         </Route>
 
