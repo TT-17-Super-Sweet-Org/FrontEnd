@@ -20,8 +20,9 @@ export default function Login(){
        axiosWithAuth()
        .post('/auth/login', user) 
        .then((res)=>{
-        //    console.log('this is login:', res.data)
+           console.log('this is login:', res.data)
            localStorage.setItem('token', res.data.token)
+           localStorage.setItem('user', res.data.user)
            history.push('/home')
        })
        

@@ -1,29 +1,23 @@
 import React, {  useState } from 'react'
 import {axiosWithAuth} from '../utils/axiosWithAuth'
 import image from '../theme/images/thumbs/05.jpg'
+import { useHistory } from 'react-router-dom'
 
 const initialRecipe = {
     title: '',
     source: '',
     ingredients: '',
     instructions: '',
+    username: '',
     category: '',
 }
 
 function AddRecipe({disabled}) {
 
-    // const {
-    //     recipe,
-    //     setRecipe,
-    //     disabled,
-    //     handleSubmit,
-    //     changeHandler,
-    //     } = props
     const [newRecipe, setNewRecipe] = useState(initialRecipe)
-    // const [file,setFile] = useState(null);  // for picture upload
-    // const [fileError, setFileError] = useState(null)// for picture upload
 
-    // const types = ['image/png', 'image/jpeg']// allowed picture file types
+    const history= useHistory()
+
 
     const handleChange=e=>{
         setNewRecipe({
@@ -32,19 +26,23 @@ function AddRecipe({disabled}) {
         })
     }
 
+    // console.log(newRecipe)
+
+
     const recipe = e => {
         e.preventDefault()
 
         axiosWithAuth()
-        .post('/api/recipes')
+        .post('/recipes', newRecipe)
         .then((res)=>{
-            console.log(res)
+            console.log('this is newrecipe:',res)
+            history.push('/home')
         })
         .catch((err)=>{
-            console.log({err})
+            console.log('this is newrecipe error:',{err})
         })
     }
-
+    
 
     return (
 
@@ -105,80 +103,28 @@ function AddRecipe({disabled}) {
                     rows={4}
                     />
                 </label>
-                
 
-                {/*     Radio buttons for catagories     */}
-                <h4>Choose the category that best suits your recipe:</h4>
-                <div className='categories'>
-                    
-                    <label>Appetizer
-                        <input
-                        className='radioBtn category'
-                        type= 'radio'
-                        name= 'category'
-                        value= 'appetizer'
-                        checked= {recipe.category === 'appetizer'}
-                        onChange= {handleChange}
-                        />
-                    </label>
-                    <label>Savory
-                        <input
-                        className='radioBtn category'
-                        type= 'radio'
-                        name= 'category'
-                        value= 'savory'
-                        checked= {recipe.category === 'savory'}
-                        onChange= {handleChange}
-                        />
-                    </label>
-                    <label>Dessert
-                        <input
-                        className='radioBtn category'
-                        type= 'radio'
-                        name= 'category'
-                        value= 'dessert'
-                        checked= {recipe.category === 'dessert'}
-                        onChange= {handleChange}
-                        />
-                    </label>
-                    <label>Baked good 
-                        <input
-                        className='radioBtn category'
-                        type= 'radio'
-                        name= 'category'
-                        value= 'baked good '
-                        checked= {recipe.category === 'baked good '}
-                        onChange= {handleChange}
-                        />
-                    </label>
-
-                    <label>Pizza
-                        <input
-                        className='radioBtn category'
-                        type= 'radio'
-                        name= 'category'
-                        value= 'pizza'
-                        checked= {recipe.category === 'pizza'}
-                        onChange= {handleChange}
-                        />
-                    </label>
-                </div>
-                
-                
-                {/* <label>Upload photo
-                    <input 
-                    className='upload'
-                    type='file'
-                    name='picture'
-                    onChange={handleChange}
-                    style={{display: 'none'}}
+                <label>Username
+                    <input
+                    className='textBox title'
+                    type= 'text'
+                    name= 'username'
+                    value= {recipe.username}
+                    placeholder= 'Username'
+                    onChange= {handleChange}
                     />
-                    <div className='outputFile'>
-                        { fileError && <div className='error'>{fileError}</div>}
-                        { file && <div>{ file.name }</div>}
-                    </div>
-                    <button>Upload</button>
-                </label> */}
+                </label>
+
+                <label>Category
+                    <input
+                    className='textBox title'
+                    type= 'text'
+                    name= 'category'
+                    value= {recipe.category}
+                    placeholder= 'Category'
+                    onChange= {handleChange}
+                    />
+                </label>
     
                 <div className='submitBtn'>
                     <button disabled={disabled} id='submit' >Submit</button>

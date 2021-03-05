@@ -1,8 +1,10 @@
 /* eslint-disable eqeqeq */
-import userEvent from '@testing-library/user-event';
-import React, { useEffect } from 'react'
+// import userEvent from '@testing-library/user-event';
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import image from '../theme/images/thumbs/06.jpg'
+// import image from '../theme/images/thumbs/06.jpg'
+import axios from 'axios'
+
 
 const RecipeStyle = styled.div`
 border:2px solid black;
@@ -32,20 +34,41 @@ span{
 `;
 
 
-export default function Home(props) {
-    const {listOfRecipes} = props;
-    
-   if (listOfRecipes == '') {
-       return (
-           <div>
-               <h3>No recipes added</h3>
-           </div>
-       )
-   }
+export default function Home() {
+    // const {listOfRecipes} = props;
 
-   const listToShow = listOfRecipes.map((recipe,index) => {
+const [userRecipes, setUserRecipes]= useState([])
+const user = localStorage.getItem('user')
+
+useEffect(()=>{
+    axios
+    .get(`https://tt17-secret-family-recipe.herokuapp.com/api/recipes/${user}/`)
+    .then((res)=>{
+        console.log('this is userrecipe:',res.data)
+    //    const {id}= useParams()
+        localStorage.setItem('user', res.data)
+        setUserRecipes(res.data)
+    })
+    .catch((err)=>{
+        console.log('this is userrecipe error:',{err})
+    })
+},[]
+
+)
+
+    
+//    if (listOfRecipes == '') {
+//        return (
+//            <div>
+//                <h3>No recipes added</h3>
+//            </div>
+//        )
+//    }
+
+   const listToShow = userRecipes.map((recipe,index) => {
        return (
-           <RecipeStyle className="recipe" key={index}>
+           <>
+           <RecipeStyle className="recipe" key={index}setUserRecipes={setUserRecipes} userRecipes={userRecipes}>
 
 
         <h3> Recipe #{index + 1}</h3>
@@ -54,8 +77,9 @@ export default function Home(props) {
         <p><span>Ingredients: </span>{recipe.ingredients}</p>
         <p className='category'><span>Category: </span>{recipe.category}</p>
         <p><span>Instructions: </span>{recipe.instruction}</p>
+        <button>Delete</button>
            </RecipeStyle>
-
+        </>
        )
    })
    return listToShow;
